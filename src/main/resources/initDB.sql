@@ -1,7 +1,7 @@
 -- Table developers;
 CREATE TABLE developers(
   id INT NOT NULL  AUTO_INCREMENT PRIMARY KEY,
-  dev_name VARCHAR(255) NOT NULL ,
+  developer_name VARCHAR(255) NOT NULL ,
   experience DECIMAL NOT NULL
 )
   ENGINE = InnoDB;
@@ -32,20 +32,20 @@ CREATE TABLE customers(
 
 -- Table for mapping developers abd skills;
 CREATE TABLE developers_skills(
-  dev_id INT NOT NULL ,
+  developers_id INT NOT NULL ,
   skill_id INT NOT NULL ,
 
-  FOREIGN KEY (dev_id) REFERENCES developers(id),
+  FOREIGN KEY (developers_id) REFERENCES developers(id),
   FOREIGN KEY (skill_id) REFERENCES skills(id)
 )
   ENGINE = InnoDB;
 -- Table for mapping projects and developers;
 CREATE TABLE projects_developers(
   project_id INT NOT NULL ,
-  dev_id INT NOT NULL ,
+  developers_id INT NOT NULL ,
 
   FOREIGN KEY (project_id) REFERENCES projects(id),
-  FOREIGN KEY (dev_id) REFERENCES developers(id)
+  FOREIGN KEY (developers_id) REFERENCES developers(id)
 )
   ENGINE = InnoDB;
 -- Table for mapping companies abd projects;
